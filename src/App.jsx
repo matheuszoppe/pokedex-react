@@ -1,5 +1,6 @@
-import CardPokemon from "./components/CardPokemon"
-import InitialPokemons from "./components/InitialPokemons"
+import { ApiPokemonStorage } from "./contexts/ApiPokemonContext"
+import CardPokemon from "./pages/CardPokemon"
+import InitialPokemons from "./pages/InitialPokemons"
 
 
 
@@ -8,11 +9,13 @@ function App() {
   const isHome = pathname === '/'
 
   return (
+    <ApiPokemonStorage>
     <div className="min-w-full min-h-screen flex items-center bg-gradient-to-t from-red-600 to-red-400">
       {isHome ? <InitialPokemons/> : <CardPokemon/>}
       
       {/* <CardPokemon/> */}
     </div>
+    </ApiPokemonStorage>
   )
 }
 

@@ -1,42 +1,41 @@
 import React from "react";
 import arrowLeft from "../assets/ArrowCircleLeft.png";
+import { ApiPokemonContext } from './../contexts/ApiPokemonContext';
 
 const CardPokemon = () => {
   const pathname = window.location.pathname.replace("/", "");
-
-  const [dados, setDados] = React.useState(null);
-  const [pokemon, setPokemon] = React.useState(pathname);
+  const {dados, setPokemon} = React.useContext(ApiPokemonContext)
+  // const [dados, setDados] = React.useState(null);
+  // const [pokemon, setPokemon] = React.useState(pathname);
   const [searchPokemon, setSearchPokemon] = React.useState(1);
 
+  if(dados === null) return null
+  
+  
   ///////////  FETCH   ///////////////////////////////////////////////
-  React.useEffect(
-    (p) => {
-      async function fetchPokemon(pokemon) {
-        const response = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/${pokemon}`
-        );
-        if (response.status === 200) {
-          const data = await response.json();
-          setDados(data);
-        } else setDados(null);
-      }
-      fetchPokemon(pokemon);
-      // fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-      // .then((response)=> response.json()).then((json) => setDados(json))
-    },
-    [pokemon]
-  );
+  // React.useEffect(
+  //   () => {
+  //     async function fetchPokemon(pokemon) {
+  //       const response = await fetch(
+  //         `https://pokeapi.co/api/v2/pokemon/${pokemon}`
+  //       );
+  //       if (response.status === 200) {
+  //         const data = await response.json();
+  //         setDados(data);
+  //       } else setDados(null);
+  //     }
+  //     fetchPokemon(pokemon);     
+  //   },
+  //   [pokemon]
+  // );
 
   const haveData = dados !== null;
-
-  if (!haveData) {
-    return <div className="flex-1">Carregando...</div>;
-  }
 
   function handleSearchPokemon(event) {
     event.preventDefault();
     setPokemon(searchPokemon);
   }
+  
 
   /////////  BOTOES /////////////////////////
 

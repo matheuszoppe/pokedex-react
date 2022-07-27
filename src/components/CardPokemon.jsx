@@ -29,6 +29,10 @@ const CardPokemon = () => {
 
   const haveData = dados !== null;
 
+  if (!haveData) {
+    return <div className="flex-1">Carregando...</div>;
+  }
+
   function handleSearchPokemon(event) {
     event.preventDefault();
     setPokemon(searchPokemon);

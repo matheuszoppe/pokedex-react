@@ -23,7 +23,7 @@ export const ApiPokemonStorage = ({children}) =>{
 
 
   return(
-    <ApiPokemonContext.Provider value={{setPokemon, dados}}>
+    <ApiPokemonContext.Provider value={{setPokemon, dados, pokemon}}>
       {children}
     </ApiPokemonContext.Provider>
   )

@@ -1,45 +1,20 @@
 import React from "react";
 import arrowLeft from "../assets/ArrowCircleLeft.png";
-import { ApiPokemonContext } from './../contexts/ApiPokemonContext';
+import { ApiPokemonContext } from "./../contexts/ApiPokemonContext";
 
 const CardPokemon = () => {
-  
-  const {dados, setPokemon} = React.useContext(ApiPokemonContext)
-  // const [dados, setDados] = React.useState(null);
-  // const [pokemon, setPokemon] = React.useState(pathname);
-  const [searchPokemon, setSearchPokemon] = React.useState('');
+  const { dados, setPokemon, pokemon } = React.useContext(ApiPokemonContext);
+  const [searchPokemon, setSearchPokemon] = React.useState("");
   const inputElement = React.useRef();
 
-  
-  
-  
-  ///////////  FETCH   ///////////////////////////////////////////////
-  // React.useEffect(
-  //   () => {
-  //     async function fetchPokemon(pokemon) {
-  //       const response = await fetch(
-  //         `https://pokeapi.co/api/v2/pokemon/${pokemon}`
-  //       );
-  //       if (response.status === 200) {
-  //         const data = await response.json();
-  //         setDados(data);
-  //       } else setDados(null);
-  //     }
-  //     fetchPokemon(pokemon);     
-  //   },
-  //   [pokemon]
-  // );
-
   const haveData = dados !== null;
-
 
   function handleSearchPokemon(event) {
     event.preventDefault();
     setPokemon(searchPokemon);
-    setSearchPokemon('')
+    setSearchPokemon("");
     inputElement.current.focus();
   }
-
 
   /////////  BOTOES /////////////////////////
 

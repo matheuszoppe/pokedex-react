@@ -13,7 +13,7 @@ function App() {
     <div className="min-w-full min-h-screen flex items-center bg-gradient-to-t from-red-600 to-red-400">
       {isHome ? <InitialPokemons/> : <CardPokemon/>}
       
-      {/* <CardPokemon/> */}
+      
     </div>
     </ApiPokemonStorage>
   )

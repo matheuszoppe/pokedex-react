@@ -3,13 +3,14 @@ import arrowLeft from "../assets/ArrowCircleLeft.png";
 import { ApiPokemonContext } from './../contexts/ApiPokemonContext';
 
 const CardPokemon = () => {
-  const pathname = window.location.pathname.replace("/", "");
+  
   const {dados, setPokemon} = React.useContext(ApiPokemonContext)
   // const [dados, setDados] = React.useState(null);
   // const [pokemon, setPokemon] = React.useState(pathname);
-  const [searchPokemon, setSearchPokemon] = React.useState(1);
+  const [searchPokemon, setSearchPokemon] = React.useState('');
+  const inputElement = React.useRef();
 
-  if(dados === null) return null
+  
   
   
   ///////////  FETCH   ///////////////////////////////////////////////
@@ -31,11 +32,14 @@ const CardPokemon = () => {
 
   const haveData = dados !== null;
 
+
   function handleSearchPokemon(event) {
     event.preventDefault();
     setPokemon(searchPokemon);
+    setSearchPokemon('')
+    inputElement.current.focus();
   }
-  
+
 
   /////////  BOTOES /////////////////////////
 
@@ -55,10 +59,12 @@ const CardPokemon = () => {
         <img src={arrowLeft} alt="" />
       </a>
       <div className="bg-[url('./assets/bgCard.png')] bg-cover bg-no-repeat w-full h-[60%] flex justify-center relative">
-        <form onSubmit={handleSearchPokemon} className="search absolute top-5">
+        <form onSubmit={handleSearchPokemon} className="absolute top-5">
           <input
             className="py-2 px-4 rounded-full text-center opacity-2 border-2 border-black"
             type="search"
+            value={searchPokemon}
+            ref={inputElement}
             placeholder="⌲ Name or number"
             onChange={(event) =>
               setSearchPokemon(event.target.value.toLowerCase())

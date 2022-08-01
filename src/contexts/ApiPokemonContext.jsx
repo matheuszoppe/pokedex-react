@@ -11,7 +11,7 @@ export const ApiPokemonStorage = ({children}) =>{
   const baseURL = import.meta.env.VITE_API_URL
   React.useEffect(() =>{
      
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`).then((reponse)=>{setDados(reponse.data)})
+    axios.get(`${baseURL}/${pokemon}`).then((reponse)=>{setDados(reponse.data)})
    
     
     // async function fetchPokemon(pokemon) {

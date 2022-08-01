@@ -5,13 +5,14 @@ import axios from 'axios'
 export const ApiPokemonContext = React.createContext()
 
 export const ApiPokemonStorage = ({children}) =>{
-  const pathname = window.location.pathname.replace("/", "");
+  // const pathname = window.location.pathname.replace("/", "");
   const [dados, setDados] = React.useState(null);
-  const [pokemon, setPokemon] = React.useState(pathname);
+  const [pokemon, setPokemon] = React.useState(1);
   const baseURL = import.meta.env.VITE_API_URL
   React.useEffect(() =>{
-    
+     
     axios.get(`${baseURL}/${pokemon}`).then((reponse)=>{setDados(reponse.data)})
+   
     
     // async function fetchPokemon(pokemon) {
     //   const response = await fetch(

@@ -3,7 +3,7 @@ import arrowLeft from "../assets/ArrowCircleLeft.png";
 import { ApiPokemonContext } from "./../contexts/ApiPokemonContext";
 
 const CardPokemon = () => {
-  const { dados, setPokemon, pokemon } = React.useContext(ApiPokemonContext);
+  const { dados, setPokemon} = React.useContext(ApiPokemonContext);
   const [searchPokemon, setSearchPokemon] = React.useState("");
   const inputElement = React.useRef();
 

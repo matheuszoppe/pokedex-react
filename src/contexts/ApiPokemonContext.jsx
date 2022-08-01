@@ -8,11 +8,12 @@ export const ApiPokemonStorage = ({children}) =>{
   const pathname = window.location.pathname.replace("/", "");
   const [dados, setDados] = React.useState(null);
   const [pokemon, setPokemon] = React.useState(pathname);
-  const baseURL = 'https://pokeapi.co/api/v2/pokemon'
+  const baseURL = 'https://pokeapi.co/api/v2/pokemon/'+pokemon
   React.useEffect(() =>{
     
-    axios.get(`${baseURL}/${pokemon}`).then((reponse)=>{setDados(reponse.data)})
-    
+    axios.get(baseURL).then((reponse)=>{setDados(reponse.data)})
+    console.log(pokemon)
+    console.log(baseURL)
     // async function fetchPokemon(pokemon) {
     //   const response = await fetch(
     //     `https://pokeapi.co/api/v2/pokemon/${pokemon}`

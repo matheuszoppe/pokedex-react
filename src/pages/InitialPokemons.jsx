@@ -12,9 +12,6 @@ const InitialPokemons = () => {
     "bg w-full h-screen bg-gradient-to-t  flex flex-col items-center justify-center gap-16 transition-colors";
 
 
-  function hundleClick(event){
-    console.log(event.target.href)
-  }
 
   return (
     <div className={[bgstyle, background]} style={{ background: background }}>

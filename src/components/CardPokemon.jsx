@@ -20,7 +20,7 @@ const CardPokemon = ({setPokemon, dados}) => {
   } 
 
   return (    
-      <div className=" h-[500px] bg-gray-100 rounded-[40px]  overflow-hidden shadow-md text-center flex flex-col gap-5 relative">
+      <div className=" w-[280px] sm:w-[300px] h-[500px] bg-gray-100 rounded-[40px]  overflow-hidden shadow-md text-center flex flex-col gap-5 relative">
         <div className="bg-[url('./assets/bgCard.png')] bg-cover bg-no-repeat w-full h-[60%] flex justify-center relative">
           <form
             onSubmit={handleSearchPokemon}

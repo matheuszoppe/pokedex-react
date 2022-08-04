@@ -44,21 +44,18 @@ const SearchPokemon = () => {
 
   return (
     <div className="m-auto relative ">
-      {isLoading ? <CardPokemonSkeleton/> : <CardPokemon setPokemon={setPokemon} dados={dados}/>}
-      
-      
-      
+      {isLoading ? <CardPokemonSkeleton/> : <CardPokemon setPokemon={setPokemon} dados={dados}/>}      
       <button
-        className="absolute top-[200px] left-[-100px]"
+        className="absolute top-[250px] left-[-40px] sm:top-[200px] sm:left-[-100px]"
         onClick={handlePrevPokemon}
       >
-        <img src={CaretLeft} alt="seta esquerda" />
+        <img className="w-10 sm:w-full" src={CaretLeft} alt="seta esquerda" />
       </button>
       <button
-        className="absolute top-[200px] right-[-100px]"
+        className="absolute top-[250px] right-[-40px] sm:top-[200px] sm:right-[-100px]"
         onClick={handleNextPokemon}
       >
-        <img src={CaretRight} alt="seta esquerda" />
+        <img className="w-10 sm:w-full" src={CaretRight} alt="seta esquerda" />
       </button>
     </div>
   );
